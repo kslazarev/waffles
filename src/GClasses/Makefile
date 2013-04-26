@@ -211,9 +211,9 @@ $(DEPS_DBG) : $(OBJ_PATH)/dbg/%.d : %.cpp
 	@echo -e "Computing dbg dependencies for $<"
 	@-rm -f $$(dirname $@)/$$(basename $@ .d).o
 	@#lockfile-create -r 0 $@
-	@echo -en "$$(dirname $@)/" > $@
+	@echo -en "	$$(dirname $@)/" > $@
 	@$(COMPILER) $(DBG_CFLAGS) -MM $< >> $@
-	@echo -e "	$(COMPILER) $(DBG_CFLAGS) -c $< -o $$(dirname $@)/$$(basename $@ .d).o" >> $@
+	@echo -e "		$(COMPILER) $(DBG_CFLAGS) -c $< -o $$(dirname $@)/$$(basename $@ .d).o" >> $@
 	@#lockfile-remove $@
 
 # This rule makes the test/profile ".d" files by using "g++ -MM" with the corresponding ".cpp" file
