@@ -228,9 +228,9 @@ $(DEPS_GCOV) : $(OBJ_PATH)/gcov/%.d : %.cpp
 	@echo -en "$$(dirname $@)/" > $@
 	@$(COMPILER) $(GCOV_CFLAGS) -MM $< >> $@
 	@#Delete old gcno file
-	@echo -en "        rm -f " >> $@
+	@echo -en "    rm -f " >> $@
 	@echo $$(dirname $@)/$$(basename $@ .d).gcno >> $@
-	@echo -e "        $(COMPILER) $(GCOV_CFLAGS) -c $< -o $$(dirname $@)/$$(basename $@ .d).o" >> $@
+	@echo -e "    $(COMPILER) $(GCOV_CFLAGS) -c $< -o $$(dirname $@)/$$(basename $@ .d).o" >> $@
 	@#lockfile-remove $@
 
 partialcleanopt :
